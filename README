@@ -1,0 +1,63 @@
+mDataRecovery, CommandLine backup utility.
+Copyright (C) 2010  Mohit Ranka
+
+Directory structure 
+===================
+
+main.py - The single entry of interaction for the end user.
+
+utils.py - Utility classes for ZipSupport and SQLite Actions.
+
+backup/ - Directory containing the different backup method classes, and the parent factory class, backup/base.py
+
+restore/ - Directory containing the different restore method classes, and the parent factory class, restore/base.py 
+
+docs/ - Documentation (or the lack of thereof) for mDataRecovery.
+
+
+Dependencies
+============
+
+mDataRecovery has following dependency requirements.  
+
+1. python2.6
+2. sqlite3 
+
+Usage
+=====
+
+python main.py [options]
+
+Options:
+  -h, --help            show this help message and exit.
+
+  -a ACTION, --action=ACTION
+                        User action ('backup' or 'restore').No default.
+
+  -s SOURCE_LOCATION, --source_location=SOURCE_LOCATION
+                        Location of source directory for backup.No default.
+
+  -m METHOD, --method=METHOD
+                        Method of backup ('Local' or 'Rsync' or 'AWS' or
+                        'Rackspace' etc). Only 'Local' is supported as of now.
+
+  -b BASE_LOCATION, --base_location=BASE_LOCATION
+                        Location of the mDataRecovery backup directory to be
+                        create.Defaults to '.mdatarecovery' in current
+                        directory.
+
+  -r REVISION_NUMBER, --revision_number=REVISION_NUMBER
+                        Revision number which is needs to be restored.
+                        Defaults to most recent version.
+
+  -t TARGET_LOCATION, --target_location=TARGET_LOCATION
+                        Location where the restoration should happen.Defaults
+                        to current directory.
+
+NOTE - mDataRecovery *should* work on any platform, however it is been tested only on Unix based system, as of now.
+mDataRecovery is not ready/mature and yet to be 'battle-tested' to be used in production enviornment.
+
+License
+=======
+
+Refer docs/LICENSE for information regarding mDataRecovery license.
